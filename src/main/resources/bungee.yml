@@ -1,0 +1,4 @@
+name: AutoReconnectServer
+version: @version@
+main: xyz.n7mn.dev.water.autoreconnectserver.AutoReconnectServer
+description: AutoReconnectServer
