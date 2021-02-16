@@ -14,7 +14,6 @@ import java.util.*;
 public final class AutoReconnectServer extends Plugin {
 
     private Timer timer = new Timer();
-
     @Override
     public void onEnable() {
         // Plugin startup logic
@@ -49,14 +48,15 @@ public final class AutoReconnectServer extends Plugin {
                                 }
 
                                 if (!player.getServer().getInfo().getName().equals("tct")){
-                                    component.setText(ChatColor.GREEN + "現在 TCT鯖(1.12.2以降) は 起動しています。\n");
+                                    TextComponent component1 = new TextComponent();
+                                    component1.setText(ChatColor.GREEN + "現在 TCT鯖(1.8以降) は 起動しています。\n");
 
                                     TextComponent component2 = new TextComponent();
                                     component2.setText(ChatColor.YELLOW + "" + ChatColor.UNDERLINE +"TCT鯖へ入室");
                                     component2.setClickEvent(new ClickEvent(ClickEvent.Action.RUN_COMMAND, "/server tct"));
-                                    component.addExtra(component2);
+                                    component1.addExtra(component2);
 
-                                    player.sendMessage(component);
+                                    player.sendMessage(component1);
                                 }
                             }
                         }
@@ -68,6 +68,7 @@ public final class AutoReconnectServer extends Plugin {
         };
 
         timer.schedule(task, 0L, 5000L);
+        getProxy().getPluginManager().registerListener(this, new EventListner());
 
     }
 
