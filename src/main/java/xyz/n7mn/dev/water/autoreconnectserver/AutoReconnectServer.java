@@ -68,7 +68,7 @@ public final class AutoReconnectServer extends Plugin {
         };
 
         timer.schedule(task, 0L, 5000L);
-        getProxy().getPluginManager().registerListener(this, new EventListner());
+        //getProxy().getPluginManager().registerListener(this, new EventListner());
 
     }
 
