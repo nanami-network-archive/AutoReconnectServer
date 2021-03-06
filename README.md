@@ -1,0 +1,5 @@
+# AutoReconnectServer
+Waterfallプラグイン
+
+TCT本アドレスでのTCT鯖再起動時にロビーにいた場合自動でTCT鯖へ戻したり
+お知らせするプラグイン
