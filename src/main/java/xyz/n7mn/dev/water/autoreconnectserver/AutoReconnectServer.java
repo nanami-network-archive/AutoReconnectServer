@@ -9,6 +9,7 @@ import net.md_5.bungee.api.connection.ProxiedPlayer;
 import net.md_5.bungee.api.plugin.Listener;
 import net.md_5.bungee.api.plugin.Plugin;
 
+import java.net.SocketAddress;
 import java.util.*;
 
 public final class AutoReconnectServer extends Plugin {
@@ -32,12 +33,20 @@ public final class AutoReconnectServer extends Plugin {
                     tct.ping((result, error) -> {
                         if (error.getMessage() != null){
                             for (ProxiedPlayer player : players){
+
+                                if (!player.getPendingConnection().getVirtualHost().getHostName().equals("jp.nohit.cc")){
+                                    continue;
+                                }
+
                                 component.setText(ChatColor.RED + "現在 TCT鯖 は 停止中 です。 しばらくお待ち下さい。\n(自動接続されます)");
                                 player.sendMessage(component);
                                 playerList.add(player);
                             }
                         } else {
                             for (ProxiedPlayer player : players){
+                                if (!player.getPendingConnection().getVirtualHost().getHostName().equals("jp.nohit.cc")){
+                                    continue;
+                                }
 
                                 if (playerList.contains(player) && !player.getServer().getInfo().getName().equals("tct")){
                                     component.setText(ChatColor.GREEN + "自動接続しています...");
